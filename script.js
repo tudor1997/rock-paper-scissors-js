@@ -86,7 +86,7 @@ function gameChoices(userChoice, computerChoice) {
         case "paperrock":
         case "scissorspaper":
         case "rockscissors":
-            result.innerHTML = "Congrats! You win!";
+            result.innerHTML = "Congrats! You won!";
             scoreUserCount +=  1;
             userScore.innerHTML = scoreUserCount;
             if( scoreUserCount + 1){

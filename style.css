@@ -131,3 +131,10 @@ body{
         opacity:1;
     }
 }
+
+@media screen and (max-width:580px){
+    .pick i {
+        font-size:80px;
+   
+    }
+}
