@@ -1,0 +1,16 @@
+{
+  "name": "rock-paper-scissors",
+  "version": "1.0.0",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "gh-pages -d dist"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://tudor1997.github.io/rock-paper-scissors",
+  "description": "",
+  "dependencies": {
+    "gh-pages": "^3.2.3"
+  }
+}
