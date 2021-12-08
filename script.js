@@ -4,13 +4,21 @@ const pick = document.querySelectorAll('.pick');
 const result = document.querySelector('.result');
 const resetBtn = document.querySelector('.reset');
 
+let scoreUserCount = 0;
+let scoreComputerCount = 0;
+// User
 const userRock = document.querySelector('.user .rock')
 const userPaper = document.querySelector('.user .paper');
 const userScissor = document.querySelector('.user .scissors');
-
+const userScore = document.querySelector('.title .user-score');
+// Computer
 const computerRock = document.querySelector('.computer .rock');
 const computerPaper = document.querySelector('.computer .paper');
 const computerScissor = document.querySelector('.computer .scissors');
+const computerScore = document.querySelector('.title .computer-score');
+
+userScore.innerHTML = scoreUserCount;
+computerScore.innerHTML = scoreComputerCount;
 
 const choice = ['rock','paper','scissors'];
 
@@ -75,20 +83,34 @@ function getComputerChoice (){
 function gameChoices(userChoice, computerChoice) {
 
     switch(userChoice + computerChoice) {
-        case "rockpaper":
         case "paperrock":
         case "scissorspaper":
+        case "rockscissors":
             result.innerHTML = "Congrats! You win!";
+            scoreUserCount +=  1;
+            userScore.innerHTML = scoreUserCount;
+            if( scoreUserCount + 1){
+                userScore.classList.add('highlight-score');
+                computerScore.classList.remove('highlight-score');
+            }
             break;
         case 'rockpaper':
         case 'paperscissors':
         case 'scissorsrock':
             result.innerHTML = "You lose!";
+            scoreComputerCount += 1;
+            computerScore.innerHTML = scoreComputerCount;
+            if(scoreComputerCount + 1){
+                userScore.classList.remove('highlight-score');
+                computerScore.classList.add('highlight-score');
+            }
             break;
         case "rockrock":
         case "paperpaper":
         case "scissorsscissors":
             result.innerHTML = "Oh, it's a draw..."
+            userScore.classList.remove('highlight-score');
+            computerScore.classList.remove('highlight-score');
             break;
     }
 }
@@ -97,5 +119,11 @@ resetBtn.addEventListener("click", () => {
     pick.forEach(item => {
         item.classList.remove('highlight')
         result.innerHTML = '';
+        scoreUserCount = 0;
+        scoreComputerCount = 0;
+        userScore.innerHTML = scoreUserCount;
+        computerScore.innerHTML = scoreComputerCount;
+        userScore.classList.remove('highlight-score');
+        computerScore.classList.remove('highlight-score');
     })
 })
