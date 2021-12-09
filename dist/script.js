@@ -189,6 +189,7 @@ continueBtn.addEventListener("click", function () {
 newGame.addEventListener("click", function () {
   infoMenu.classList.remove("active");
   resetAllScores();
+  continueBtn.classList.remove("continueActive");
 });
 
 // reset all scores
